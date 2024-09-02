@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  padding: 30px;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: blue;
+}
+#cont-country {
+  width: 300px;
+}
+#cont-country img {
+  width: 100%;
+  height: 200px;
+}
+.countries {
+  margin-top: 60px !important;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
