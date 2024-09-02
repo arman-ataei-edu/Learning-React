@@ -30,6 +30,12 @@ const NewThings = () => {
           </Link>
         </li>
       </ol>
+      <h3>Github CodeSpace</h3>
+      <ol>
+        <li>PORTS > right-click > preview in editor > http://127.0.0.1:PortNumber/</li>
+        <li>https does not work! copy the complete url</li>
+        <li>Dont forget to git add/commit/push!</li>
+      </ol>
     </div>
   );
 };
