@@ -1,9 +1,19 @@
-import { useParams } from "react-router-dom";
-
-import fetchData from "../fetches/fetchData";
+import { useState, useContext } from "react";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 
+import FavCountryContext from "../scripts/FavCountryContext";
+import fetchData from "../fetches/fetchData";
+import Modal from "./Modal";
+
 const CountryDetails = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const [_, setFavCountries] = useContext(FavCountryContext);
+
+  const [showModal, setShowModal] = useState(false);
+
   const { countryName } = useParams();
   //   console.log(chapter, countryName);
   const results = useQuery(
@@ -28,10 +38,10 @@ const CountryDetails = () => {
   });
 
   return (
-    <div className="w3-display-container " key={Math.random()}>
+    <div className="w3-display-container" key={Math.random()}>
       <div className="w3-padding-top-32 w3-display-topmiddle w3-center">
         <img src={country.flags.png} alt={country.flags.alt} />
-        <h1>{name}</h1>
+        <h1>{country.name.common}</h1>
         <div className="w3-left-align w3-padding-32">
           <p>
             Region: {country.region}, {country.subregion}
@@ -74,7 +84,55 @@ const CountryDetails = () => {
               `International Direct Dialing(IDD): ${country.idd.root}`}
           </p>
         </div>
+        <button
+          className="w3-button w3-green"
+          onClick={() => {
+            setShowModal(true);
+            document.getElementById("modal").style.display = "block";
+          }}
+        >
+          Add to favourites
+        </button>
       </div>
+
+      {showModal ? (
+        <Modal>
+          <div className="w3-modal-content w3-card-4">
+            <div className="w3-modal-content w3-card-4">
+              <header className="w3-container w3-teal w3-center">
+                <h2>Do You want to add it to your Favourite?</h2>
+              </header>
+              <div className="w3-container w3-center w3-padding">
+                <button
+                  className="w3-button w3-red w3-margin w3-padding-16"
+                  onClick={() => {
+                    document.getElementById("modal").style.display = "none";
+                    var url = location.pathname.split("/");
+                    url.pop();
+                    url = `${url.join("/")}`;
+                    // console.log(url);
+                    setFavCountries((prev) => {
+                      return new Set(prev.add(country));
+                    });
+                    navigate(url);
+                  }}
+                >
+                  Yes
+                </button>
+                <button
+                  className="w3-button w3-green w3-padding-16"
+                  onClick={() => {
+                    setShowModal(false);
+                    document.getElementById("modal").style.display = "none";
+                  }}
+                >
+                  No
+                </button>
+              </div>
+            </div>
+          </div>
+        </Modal>
+      ) : null}
     </div>
   );
 };

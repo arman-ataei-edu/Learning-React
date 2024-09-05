@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import fetchSearch from "../fetches/fetchSearch";
 
-import Country from "./Country";
+import Country from "../components/Country";
 
 const UForm = () => {
   const [region, setRegion] = useState("");

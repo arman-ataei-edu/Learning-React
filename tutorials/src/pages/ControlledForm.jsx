@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import fetchSearch from "../fetches/fetchSearch";
-import Country from "./Country";
+import Country from "../components/Country";
+import ErrorBoundary from "../tools/ErrorBoundary";
 
 const REGIONS = {
   Africa: "",
@@ -13,6 +14,7 @@ const REGIONS = {
 };
 var counter = 0;
 const Form = () => {
+  // throw new Error("lol error");
   counter += 1;
 
   const [languages, setLanguages] = useState([]);
@@ -99,15 +101,20 @@ const Form = () => {
         <div className="countries w3-container">
           {Object.keys(regions).map((region) => {
             const countries = [...regions[region]];
-            return countries.map((country, indexC) => (
-              <Country
-                name={country.name.common}
-                image={country.flags.png}
-                alt={country.name.common + "flag"}
-                population={country.population}
-                key={`${region}${indexC}`}
-              />
-            ));
+            return countries.map((country, indexC) => {
+              if (indexC == 5) {
+                // throw new Error("lol error");
+              }
+              return (
+                <Country
+                  name={country.name.common}
+                  image={country.flags.png}
+                  alt={country.name.common + "flag"}
+                  population={country.population}
+                  key={`${region}${indexC}`}
+                />
+              );
+            });
           })}
         </div>
       </div>
@@ -115,4 +122,13 @@ const Form = () => {
   );
 };
 
-export default Form;
+// export default Form;
+
+function FormErrorBoundary(props) {
+  return (
+    <ErrorBoundary>
+      <Form {...props} />
+    </ErrorBoundary>
+  );
+}
+export default FormErrorBoundary;

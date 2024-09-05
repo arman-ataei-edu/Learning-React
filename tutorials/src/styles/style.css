@@ -21,3 +21,66 @@ a:hover {
   justify-content: center;
   flex-wrap: wrap;
 }
+
+.carousel {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 600px;
+  margin-top: 8px;
+}
+.carousel > img {
+  max-width: 60%;
+  max-height: 400px;
+  border-radius: 7px;
+}
+
+.carousel-smaller {
+  width: 40%;
+}
+.carousel-smaller > img {
+  width: 35%;
+  height: 35%;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 15px;
+  cursor: pointer;
+  border: 2px solid #333;
+}
+.carousel-smaller > img.active {
+  border-color: #383838;
+  border-width: 7px;
+  opacity: 0.4;
+}
+#modal > div {
+  background-color: rgba(0, 0, 0, 0.55);
+  width: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal:empty {
+  display: none;
+}
+
+#favCountries {
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+#favCountries div img {
+  width: 50px;
+  height: 50px;
+  margin: 4px auto;
+  border-radius: 50%;
+}

@@ -11,6 +11,7 @@ const Home = () => {
       />
       <Content title={"Python Server"} url={"Python-Server"} number={3} />
       <Content title={"Others"} url={"Others"} number={4} />
+      <Content title={"Class Components"} url={"Class-Components"} number={5} />
     </div>
   );
 };
