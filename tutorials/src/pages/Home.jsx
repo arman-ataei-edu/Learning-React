@@ -31,6 +31,11 @@ const Home = () => {
         url={"React-Performance"}
         number={12}
       />
+      <Content
+        title={"Vercel: Hosting and Deployment"}
+        url={"Vercel"}
+        number={13}
+        />
     </div>
   );
 };

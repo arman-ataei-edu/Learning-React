@@ -7,6 +7,7 @@ import ClassComponents from "../pages/ClassComponents";
 import OtherHooks from "../pages/otherHooks/OtherHooks";
 import WebPack from "../pages/WebPack";
 import Vite from "../pages/Vite";
+import Vercel from "../pages/Vercel"
 
 const Router1 = () => {
   const { r1 } = useParams();
@@ -34,6 +35,7 @@ const Router1 = () => {
         {r1 == "Other-Hooks" && <OtherHooks />}
         {r1 == "WebPack" && <WebPack />}
         {r1 == "Vite" && <Vite />}
+        {r1 == "Vercel" && <Vercel />}
       </div>
     </div>
   );
