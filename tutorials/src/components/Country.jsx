@@ -6,11 +6,11 @@ const Country = ({ image, alt, name, population }) => {
   if (name === "Antarctica") {
     throw new Error("CountryName Antractica is the second in the list");
   }
-  const { chapter } = useParams();
+  const { r1 } = useParams();
   const link = name.split(" ").join("-");
   return (
     <div className="w3-card w3-col m4 w3-margin" id="cont-country">
-      <Link to={`/${chapter}/${link}`}>
+      <Link to={`/${r1}/${link}`}>
         <img src={image || "#"} alt={alt || "image-alt"} />
         <div className="w3-container">
           <h3>

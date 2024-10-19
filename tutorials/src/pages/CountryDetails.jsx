@@ -14,7 +14,8 @@ const CountryDetails = () => {
 
   const [showModal, setShowModal] = useState(false);
 
-  const { countryName } = useParams();
+  const { r2 } = useParams();
+  const countryName = r2;
   //   console.log(chapter, countryName);
   const results = useQuery(
     ["details", "name", countryName.split("-").join(" ")],
@@ -112,7 +113,24 @@ const CountryDetails = () => {
                     url = `${url.join("/")}`;
                     // console.log(url);
                     setFavCountries((prev) => {
-                      return new Set(prev.add(country));
+                      // console.log(prev, "countryDetails");
+                      let curr = [...prev];
+                      let haveCountry = false;
+                      console.log(curr);
+                      if (curr.length != 0) {
+                        curr = curr.map((cnty) => {
+                          if (cnty[0] == country) {
+                            cnty[1] = location.pathname;
+                            haveCountry = true;
+                          }
+                          return cnty;
+                        });
+                      }
+                      if (!haveCountry) {
+                        return new Set(prev.add([country, location.pathname]));
+                      }
+                      // console.log(curr, "countryDetails");
+                      return new Set(curr);
                     });
                     navigate(url);
                   }}

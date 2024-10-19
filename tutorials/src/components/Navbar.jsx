@@ -11,9 +11,10 @@ const Navbar = () => {
   const [favCountries, _] = useContext(FavCountryContext);
   const faveCountries = [...favCountries];
   useEffect(() => {}, [location.pathname]);
-
+  // console.log(window.origin, "from  NavBar");
   const tabs_ = location.pathname.split("/");
 
+  console.log(favCountries, "Navbar");
   var link = "";
   return (
     <div>
@@ -41,10 +42,12 @@ const Navbar = () => {
       {faveCountries.length != 0 && (
         <div id="favCountries">
           <span>Favourites:</span>
-          {faveCountries.map((country, index) => {
+          {faveCountries.map(([country, link], index) => {
             return (
               <div key={index} className="w3-margin-left">
-                <img src={country.flags.png} alt={country.name.common} />
+                <Link to={link}>
+                  <img src={country.flags.png} alt={country.name.common} />
+                </Link>
               </div>
             );
           })}
