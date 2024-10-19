@@ -128,11 +128,9 @@ const NewThings = () => {
             </div>
           </div>
           or
-          <Code>
-            {" "}
-            const [favCountries, setFavCountries] =
-            useContext(FavCountryContext);
-          </Code>
+          <Code 
+            code={" const [favCountries, setFavCountries] = useContext(FavCountryContext)"}
+          />
         </li>
         <li>its possible to read and write a global state</li>
       </ol>
@@ -154,11 +152,15 @@ const NewThings = () => {
       <h2>useState</h2>
       <ol>
         <li>
-          <Code>import &#123; useState &#125; from "react"</Code>{" "}
+          <Code
+           code={'import { useState } from "react"'}
+          />
         </li>
         <li>
           it is equivalent to &quot; this.state &quot;
-          <Code>const [state, setState] = useState("")</Code>
+          <Code 
+          code={'const [state, setState] = useState("")'}
+          />
         </li>
         <li>if changed, rerenders the component</li>
         <li>dont call it inside a loop or conditional statements</li>
@@ -174,7 +176,9 @@ const NewThings = () => {
         <li>
           The correct way of reading state after the update would be using the
           useEffect hook.
-          <Code>useEffect(() => console.log(state), [state])</Code>
+          <Code 
+            code={'useEffect(() => console.log(state), [state])'}
+          />
         </li>
       </ol>
       <h2>useEffect</h2>
