@@ -22,6 +22,7 @@ a:hover {
   background-color: lightseagreen;
   color: black;
   font-weight: bold;
+  position: relative;
   padding: 20px;
 }
 .copy{
@@ -73,6 +74,11 @@ a:hover {
   border-width: 7px;
   opacity: 0.4;
 }
+
+#country-details{
+  min-height: 100vh;
+}
+
 #modal > div {
   background-color: rgba(0, 0, 0, 0.55);
   width: 100%;

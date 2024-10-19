@@ -39,7 +39,7 @@ const CountryDetails = () => {
   });
 
   return (
-    <div className="w3-display-container" key={Math.random()}>
+    <div id="country-details" className="w3-display-container" key={Math.random()}>
       <div className="w3-padding-top-32 w3-display-topmiddle w3-center">
         <img src={country.flags.png} alt={country.flags.alt} />
         <h1>{country.name.common}</h1>
