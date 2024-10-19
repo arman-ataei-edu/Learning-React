@@ -17,7 +17,7 @@ const Navbar = () => {
   console.log(favCountries, "Navbar");
   var link = "";
   return (
-    <div>
+    <div id="header">
       <header className="w3-bar w3-light-gray">
         <Link className="w3-bar-item w3-button w3-mobile w3-green" to={"/"}>
           Home

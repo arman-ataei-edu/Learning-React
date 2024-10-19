@@ -7,6 +7,7 @@ import FavCountryContext from "./scripts/FavCountryContext";
 
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
+import Footer from "./components/Footer"
 import Router1 from "./routers/Router1";
 import Router2 from "./routers/Router2";
 // import CountryDetails from "./pages/CountryDetails";
@@ -32,6 +33,7 @@ const App = () => {
             <Route path="/:r1" element={<Router1 />} />
             <Route path="/" element={<Home />} />
           </Routes>
+          <Footer />
         </FavCountryContext.Provider>
       </QueryClientProvider>
     </BrowserRouter>
