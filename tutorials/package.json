@@ -1,10 +1,12 @@
 {
   "name": "2-setup-dev-env",
   "version": "1.0.0",
+  "homepage":"https://arman-ataei-edu.github.io/Learning-React",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "deploy": "gh-pages -d build",
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
@@ -22,6 +24,7 @@
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "gh-pages": "^6.2.0",
     "prettier": "^2.7.1",
     "vite": "^3.1.4"
   },
